@@ -3,6 +3,8 @@ ruby:
     version:
       1.8.7-p358-falcon-perf
 test: 
-  override: - mvn clean install
-  post: - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+  override: 
+          - mvn clean install
+  post: 
+         - mkdir -p $CIRCLE_TEST_REPORTS/junit/
         - find . -type f -regex ".*/target/failsafe-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
